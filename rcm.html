@@ -1,0 +1,93 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>Recomendaciones</title> 
+    <link rel="stylesheet" href="rcm.css"> 
+</head> 
+<body> 
+    <div class="app"> 
+        <h1>Tus Recomendaciones</h1> 
+        <div class="recommendations" id="recommendations">
+        </div> 
+    </div> 
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const userAnswers = JSON.parse(localStorage.getItem('userAnswers'));
+            const recommendationsElement = document.getElementById('recommendations');
+            
+            if (userAnswers) {
+                const ageGroup = userAnswers[0];
+                const interest1 = userAnswers[1];
+                const interest2 = userAnswers[2];
+                const endingPreference = userAnswers[3];
+                const languagePreference = userAnswers[4];
+
+                let recommendationsText = `Basado en tu edad de ${ageGroup} y tus intereses en ${interest1} y ${interest2}, te recomendamos leer...<br>`;
+                
+                if (ageGroup === "6-9") {
+                    if (interest1 === "Terror" || interest2 === "Terror") {
+                        recommendationsText += "- 'El libro del cementerio' de Neil Gaiman<br>";
+                    }
+                    if (interest1 === "Accion" || interest2 === "Accion") {
+                        recommendationsText += "- 'Percy Jackson y los dioses del Olimpo' de Rick Riordan<br>";
+                    }
+                    if (interest1 === "Romance" || interest2 === "Romance") {
+                        recommendationsText += "- 'Anna Kadabra' de Pedro Mañas<br>";
+                    }
+                    if (interest1 === "Fantasia" || interest2 === "Fantasia") {
+                        recommendationsText += "- 'Las Crónicas de Narnia' de C.S. Lewis<br>";
+                    }
+                } else if (ageGroup === "10-12") {
+                    if (interest1 === "Terror" || interest2 === "Terror") {
+                        recommendationsText += "- 'Coraline' de Neil Gaiman<br>";
+                    }
+                    if (interest1 === "Accion" || interest2 === "Accion") {
+                        recommendationsText += "- 'Harry Potter' de J.K. Rowling<br>";
+                    }
+                    if (interest1 === "Romance" || interest2 === "Romance") {
+                        recommendationsText += "- 'El diario de Greg' de Jeff Kinney<br>";
+                    }
+                    if (interest1 === "Fantasia" || interest2 === "Fantasia") {
+                        recommendationsText += "- 'Percy Jackson y los dioses del Olimpo' de Rick Riordan<br>";
+                    }
+                } else if (ageGroup === "13-17") {
+                    if (interest1 === "Terror" || interest2 === "Terror") {
+                        recommendationsText += "- 'Carrie' de Stephen King<br>";
+                    }
+                    if (interest1 === "Accion" || interest2 === "Accion") {
+                        recommendationsText += "- 'Los juegos del hambre' de Suzanne Collins<br>";
+                    }
+                    if (interest1 === "Romance" || interest2 === "Romance") {
+                        recommendationsText += "- 'Bajo la misma estrella' de John Green<br>";
+                    }
+                    if (interest1 === "Fantasia" || interest2 === "Fantasia") {
+                        recommendationsText += "- 'El nombre del viento' de Patrick Rothfuss<br>";
+                    }
+                } else if (ageGroup === "18+") {
+                    if (interest1 === "Terror" || interest2 === "Terror") {
+                        recommendationsText += "- 'El resplandor' de Stephen King<br>";
+                    }
+                    if (interest1 === "Accion" || interest2 === "Accion") {
+                        recommendationsText += "- '1984' de George Orwell<br>";
+                    }
+                    if (interest1 === "Romance" || interest2 === "Romance") {
+                        recommendationsText += "- 'Orgullo y prejuicio' de Jane Austen<br>";
+                    }
+                    if (interest1 === "Fantasia" || interest2 === "Fantasia") {
+                        recommendationsText += "- 'El señor de los anillos' de J.R.R. Tolkien<br>";
+                    }
+                }
+
+                recommendationsElement.innerHTML = recommendationsText;
+            } else {
+                recommendationsElement.textContent = 'No se encontraron respuestas. Por favor, completa el quiz primero.';
+            }
+        });
+    </script>
+</body> 
+</html>
+
+
+

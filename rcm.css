@@ -1,0 +1,41 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+    text-decoration: none;
+}
+
+body {
+    background-image: url("https://png.pngtree.com/background/20230612/original/pngtree-small-room-showing-an-old-library-with-books-all-over-the-picture-image_3184759.jpg");
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-size: cover;
+    background-position: center;
+}
+
+.app {
+    background: rgba(80, 55, 24, 0.8); 
+    border: 2px solid rgba(80, 55, 24, 0.8);
+    color: aliceblue;
+    width: 430px;
+    padding: 30px 40px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.app h1 {
+    font-size: 40px;
+    margin-bottom: 20px;
+}
+
+.recommendations {
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+.recommendations br {
+    margin: 10px 0;
+}
